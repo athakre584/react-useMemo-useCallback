@@ -1,9 +1,7 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { render } from 'react-dom';
-import { getByName, Pokemon } from './Api';
-
-import { MemoedPokemonTable } from './pokemon-table';
-import './style.css';
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { getByName, Pokemon } from "./Api";
+import "./App.css";
+import { MemoedPokemonTable } from "./pokemon-table";
 
 const calculatePower = (pokemon: Pokemon) =>
   pokemon.hp +
@@ -18,7 +16,7 @@ let appRender = 0;
 function App() {
   console.log(`app update =${appRender++}`);
   const [pokemonData, setPokemonData] = useState<Pokemon[]>([]);
-  const [search, setSearchTerm] = useState('');
+  const [search, setSearchTerm] = useState("");
 
   useEffect(() => {
     getByName(search).then(setPokemonData);
@@ -49,15 +47,13 @@ memo for props and callback for functions */
     []
   );
 
-  const min = useMemo(
-    () => Math.min(...pokemonWithPower.map((p) => p.power)),
-    [pokemonWithPower]
-  );
+  const min = useMemo(() => Math.min(...pokemonWithPower.map((p) => p.power)), [
+    pokemonWithPower,
+  ]);
 
-  const max = useMemo(
-    () => Math.max(...pokemonWithPower.map((p) => p.power)),
-    [pokemonWithPower]
-  );
+  const max = useMemo(() => Math.max(...pokemonWithPower.map((p) => p.power)), [
+    pokemonWithPower,
+  ]);
 
   const onSetSearch = useCallback((evt) => setSearchTerm(evt.target.value), []);
 
@@ -81,3 +77,5 @@ memo for props and callback for functions */
     </>
   );
 }
+
+export default App;

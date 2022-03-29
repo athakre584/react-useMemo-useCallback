@@ -11,11 +11,11 @@ export interface Pokemon {
 }
 
 export async function getAll(): Promise<Pokemon[]> {
-  return fetch('/pokemon.json').then((response) => response.json());
+  return fetch("/pokemon.json").then((response) => response.json());
 }
 
 export function getByName(search: string): Promise<Pokemon[]> {
-  return fetch('/pokemon.json')
+  return fetch("/pokemon.json")
     .then((res) => res.json())
     .then((pokemon: Pokemon[]) =>
       pokemon.filter(({ name }) =>

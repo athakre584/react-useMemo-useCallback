@@ -1,5 +1,5 @@
-import React from 'react';
-import { Pokemon } from './Api';
+import React from "react";
+import { Pokemon } from "./Api";
 
 interface PokemonWithPower extends Pokemon {
   power: number;
@@ -28,7 +28,7 @@ const PokemonTable: React.FunctionComponent<{
               <tr key={x.id}>
                 <td>{x.id}</td>
                 <td>{x.name}</td>
-                <td>{x.type.join(',')}</td>
+                <td>{x.type.join(",")}</td>
                 <td>{x.hp}</td>
                 <td>{x.attack}</td>
                 <td>{x.defense}</td>
